@@ -27,22 +27,13 @@ func init() {
 	}
 }
 
-func testCheckResourceAttrMinMax(name string, key string, expectedMin float64, expectedMax float64) resource.TestCheckFunc {
+func testCheckResourceAttrValue(name string, key string, expectedVal float64) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		r, ok := s.RootModule().Resources[name]
 		if !ok {
 			return fmt.Errorf("Resource not found: %s", r)
 		}
-		var err error
-		err = testCheckResourceAttrTypeSetFloatVal(r.Primary, key, "min", expectedMin)
-		if err != nil {
-			return err
-		}
-		err = testCheckResourceAttrTypeSetFloatVal(r.Primary, key, "max", expectedMax)
-		if err != nil {
-			return err
-		}
-		return nil
+		return testCheckResourceAttrTypeSetFloatVal(r.Primary, key, "value", expectedVal)
 	}
 }
 

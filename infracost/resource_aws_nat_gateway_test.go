@@ -17,7 +17,7 @@ func TestAwsNatGateway(t *testing.T) {
 				Config: testAwsNatGatewayConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
-					testCheckResourceAttrMinMax(name, "gb_data_processed_monthly", 5.0, 10.0),
+					testCheckResourceAttrValue(name, "gb_data_processed_monthly", 10.0),
 				),
 			},
 		},
@@ -30,8 +30,7 @@ func testAwsNatGatewayConfig() string {
 			resources = list("my-nat-gateway-1", "my-nat-gateway-2")
 
 			gb_data_processed_monthly {
-				min = 5
-				max = 10
+				value = 10
 			}
 		}
 	`

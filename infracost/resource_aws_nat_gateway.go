@@ -23,13 +23,9 @@ func resourceAwsNatGateway() *schema.Resource {
 				Optional: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
-						"min": {
+						"value": {
 							Type:     schema.TypeFloat,
-							Required: true,
-						},
-						"max": {
-							Type:     schema.TypeFloat,
-							Required: true,
+							Optional: true,
 						},
 					},
 				},
