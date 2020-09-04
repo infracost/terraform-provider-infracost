@@ -1,7 +1,6 @@
 BINARY := terraform-provider-infracost
 VERSION := $(shell cat version)
 PLUGIN_ROOT_PATH := ~/.terraform.d/plugins
-PLUGIN_INSTALL_PATH := $(PLUGIN_ROOT_PATH)/infracost.io/infracost/infracost/$(VERSION)
 
 ifndef $(GOOS)
 	GOOS=$(shell go env GOOS)
@@ -11,16 +10,17 @@ ifndef $(GOARCH)
 	GOARCH=$(shell go env GOARCH)
 endif
 
+INSTALL_PATH := $(PLUGIN_ROOT_PATH)/infracost.io/infracost/infracost/$(VERSION)/$(GOOS)_$(GOARCH)
+
 default: testacc
 
-.PHONY: testacc build windows linux darwin install_linux install_darwin
+.PHONY: testacc build windows linux darwin install
 
 # Run acceptance tests
 testacc:
 	TF_ACC=1 go test ./... -v $(TESTARGS) -timeout 120m
 
-build:
-	go build -i -v -o build/$(BINARY)
+build: $(GOOS)
 
 windows:
 	env GOOS=windows GOARCH=amd64 go build -i -v -o build/$(BINARY)-windows-amd64
@@ -31,9 +31,13 @@ linux:
 darwin:
 	env GOOS=darwin GOARCH=amd64 go build -i -v -o build/$(BINARY)-darwin-amd64
 
-install:
-	mkdir -p $(PLUGIN_INSTALL_PATH)/$(GOOS)_$(GOARCH)
-	cp build/$(BINARY)-$(GOOS)-$(GOARCH) $(PLUGIN_INSTALL_PATH)/$(GOOS)_$(GOARCH)/$(BINARY)
-	mkdir -p $(PLUGIN_ROOT_PATH)/$(GOOS)_$(GOARCH)
+clean:
+	go clean
+	rm -rf build/$(BINARY)*
+
+install: build
+	mkdir -p $(INSTALL_PATH)
+	cp build/$(BINARY)-$(GOOS)-$(GOARCH) $(INSTALL_PATH)/$(BINARY)
 	# Add a link from the old-style plugin paths to maintain compatibility with older versions of Terraform
-	ln -sf $(PLUGIN_INSTALL_PATH)/$(GOOS)_$(GOARCH)/$(BINARY) $(PLUGIN_ROOT_PATH)/$(GOOS)_$(GOARCH)/$(BINARY)
+	mkdir -p $(PLUGIN_ROOT_PATH)/$(GOOS)_$(GOARCH)
+	ln -sf $(INSTALL_PATH)/$(BINARY) $(PLUGIN_ROOT_PATH)/$(GOOS)_$(GOARCH)/$(BINARY)
