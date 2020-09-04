@@ -49,7 +49,7 @@ resource "infracost_aws_lambda_function" "my_lambda_function" {
     value = 100000
   }
 
-  request_duration {
+  average_request_duration {
     value = 500
   }
 }
@@ -59,7 +59,7 @@ resource "infracost_aws_lambda_function" "my_lambda_function" {
 
 * `resources` - (Required) The IDs of the Lambda functions to apply the estimated usage.
 * `monthly_requests` - (Optional) The estimated monthly requests to the Lambda function per month. See [Usage values](#usage_values) below for details on attributes.
-* `request_duration` - (Optional) The estimated duration of each request in ms. See [Usage values](#usage_values) below for details on attributes.
+* `average_request_duration` - (Optional) The estimated average duration of each request in milliseconds. See [Usage values](#usage_values) below for details on attributes.
 
 ### Usage values
 
