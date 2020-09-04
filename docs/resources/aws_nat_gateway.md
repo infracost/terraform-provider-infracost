@@ -5,15 +5,15 @@ Provides estimated usage data for an AWS Nat Gateway.
 ## Example Usage
 
 ```hcl
-resource "aws_nat_gateway" "my-nat-gateway" {
+resource "aws_nat_gateway" "my_nat_gateway" {
   allocation_id = "eip-12345678"
   subnet_id     = "subnet-12345678"
 }
 
-resource "infracost_aws_nat_gateway" "my-nat-gateway" {
-  resources = list(aws_nat_gateway.my-nat-gateway-1.id)
+resource "infracost_aws_nat_gateway" "my_nat_gateway" {
+  resources = list(aws_nat_gateway.my_nat_gateway.id)
 
-  gb_data_processed_monthly {
+  monthly_gb_data_processed {
     value = 10
   }
 }
@@ -22,10 +22,11 @@ resource "infracost_aws_nat_gateway" "my-nat-gateway" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the Nat Gateways to apply the estimated usage.
-* `gb_data_processed_monthly` - (Optional) The estimated GB of data processed by the NAT Gateway per month. See [gb_data_processed_monthly](#gb_data_processed_monthly) below for details on attributes.
+* `monthly_gb_data_processed` - (Optional) The estimated GB of data processed by the NAT Gateway per month. See [monthly_gb_data_processed](#monthly_gb_data_processed) below for details on attributes.
 
-### gb_data_processed_monthly
+### Usage values
 
-The `gb_data_processed_monthly` supports the following:
+Each of the usage value blocks currently supports the following attributes:
 
 * `value` - (Optional) The estimated value.
+

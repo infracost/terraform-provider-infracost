@@ -7,7 +7,7 @@ import (
 )
 
 func TestAwsNatGateway(t *testing.T) {
-	name := "infracost_aws_nat_gateway.my-nat-gateway"
+	name := "infracost_aws_nat_gateway.my_nat_gateway"
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:  func() {},
@@ -17,7 +17,7 @@ func TestAwsNatGateway(t *testing.T) {
 				Config: testAwsNatGatewayConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
-					testCheckResourceAttrValue(name, "gb_data_processed_monthly", 10.0),
+					testCheckResourceAttrValue(name, "monthly_gb_data_processed", 10.0),
 				),
 			},
 		},
@@ -26,10 +26,10 @@ func TestAwsNatGateway(t *testing.T) {
 
 func testAwsNatGatewayConfig() string {
 	return `
-		resource "infracost_aws_nat_gateway" "my-nat-gateway" {
-			resources = list("my-nat-gateway-1", "my-nat-gateway-2")
+		resource "infracost_aws_nat_gateway" "my_nat_gateway" {
+			resources = list("my_nat_gateway_1", "my_nat_gateway_2")
 
-			gb_data_processed_monthly {
+			monthly_gb_data_processed {
 				value = 10
 			}
 		}

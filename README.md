@@ -1,6 +1,6 @@
 # Infracost Terraform Provider
 
-**This is a WIP**
+The Infracost provider is used to add estimated usage of Terraform resources to add better cost estimations when used with the [Infracost](https://infracost.io) tool.
 
 ## Table of Contents
 
@@ -9,14 +9,9 @@
 
 ## Development
 
-Install dependencies:
-```sh
-make deps
-```
-
 Run all tests:
 ```sh
-make test
+make acctest
 ```
 
 Build:
@@ -24,7 +19,7 @@ Build:
 make build
 ```
 
-Install (Mac OSX/Linux):
+Install locally (Mac OSX/Linux):
 ```sh
 make install
 ```

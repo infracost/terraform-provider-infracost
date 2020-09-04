@@ -4,7 +4,7 @@ import (
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
-func resourceAwsNatGateway() *schema.Resource {
+func resourceAwsLambdaFunction() *schema.Resource {
 	return &schema.Resource{
 		Create: resourceCreate,
 		Read:   resourceRead,
@@ -12,7 +12,8 @@ func resourceAwsNatGateway() *schema.Resource {
 		Delete: resourceDelete,
 		Schema: map[string]*schema.Schema{
 			"resources": resourcesSchema(),
-			"monthly_gb_data_processed": usageSchema(),
+			"monthly_requests": usageSchema(),
+			"request_duration": usageSchema(),
 		},
 	}
 }
