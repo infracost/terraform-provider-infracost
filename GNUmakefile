@@ -41,3 +41,9 @@ install: build
 	# Add a link from the old-style plugin paths to maintain compatibility with older versions of Terraform
 	mkdir -p $(PLUGIN_ROOT_PATH)/$(GOOS)_$(GOARCH)
 	ln -sf $(INSTALL_PATH)/$(BINARY) $(PLUGIN_ROOT_PATH)/$(GOOS)_$(GOARCH)/$(BINARY)
+
+fmt:
+	go fmt ./...
+
+lint:
+	golangci-lint run

@@ -11,7 +11,7 @@ func resourceAwsLambdaFunction() *schema.Resource {
 		Update: resourceUpdate,
 		Delete: resourceDelete,
 		Schema: map[string]*schema.Schema{
-			"resources": resourcesSchema(),
+			"resources":        resourcesSchema(),
 			"monthly_requests": usageSchema(),
 			"request_duration": usageSchema(),
 		},

@@ -11,7 +11,7 @@ func resourceAwsNatGateway() *schema.Resource {
 		Update: resourceUpdate,
 		Delete: resourceDelete,
 		Schema: map[string]*schema.Schema{
-			"resources": resourcesSchema(),
+			"resources":                 resourcesSchema(),
 			"monthly_gb_data_processed": usageSchema(),
 		},
 	}

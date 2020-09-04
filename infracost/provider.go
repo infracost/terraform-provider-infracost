@@ -8,7 +8,7 @@ import (
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		ResourcesMap: map[string]*schema.Resource{
-			"infracost_aws_nat_gateway": resourceAwsNatGateway(),
+			"infracost_aws_nat_gateway":     resourceAwsNatGateway(),
 			"infracost_aws_lambda_function": resourceAwsLambdaFunction(),
 		},
 	}
