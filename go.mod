@@ -1,4 +1,4 @@
-module terraform-provider-infracost
+module github.com/infracost/terraform-provider-infracost
 
 go 1.14
 

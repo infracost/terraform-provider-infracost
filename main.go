@@ -1,7 +1,7 @@
 package main
 
 import (
-	"terraform-provider-infracost/infracost"
+	"github.com/infracost/terraform-provider-infracost/infracost"
 
 	"github.com/hashicorp/terraform/plugin"
 )
