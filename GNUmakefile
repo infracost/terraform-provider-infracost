@@ -23,13 +23,13 @@ testacc:
 build: $(GOOS)
 
 windows:
-	env GOOS=windows GOARCH=amd64 go build -i -v -o build/$(BINARY)-windows-amd64
+	env GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -i -v -o build/$(BINARY)-windows-amd64
 
 linux:
-	env GOOS=linux GOARCH=amd64 go build -i -v -o build/$(BINARY)-linux-amd64
+	env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -i -v -o build/$(BINARY)-linux-amd64
 
 darwin:
-	env GOOS=darwin GOARCH=amd64 go build -i -v -o build/$(BINARY)-darwin-amd64
+	env GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -i -v -o build/$(BINARY)-darwin-amd64
 
 clean:
 	go clean
