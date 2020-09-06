@@ -4,12 +4,9 @@ import (
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
-func resourceAwsLambdaFunction() *schema.Resource {
+func dataSourceAwsLambdaFunction() *schema.Resource {
 	return &schema.Resource{
-		Create: resourceCreate,
-		Read:   resourceRead,
-		Update: resourceUpdate,
-		Delete: resourceDelete,
+		Read: dataSourceRead,
 		Schema: map[string]*schema.Schema{
 			"resources":                resourcesSchema(),
 			"monthly_requests":         usageSchema(),

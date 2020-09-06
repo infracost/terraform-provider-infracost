@@ -10,7 +10,7 @@ resource "aws_nat_gateway" "my_nat_gateway" {
   subnet_id     = "subnet-12345678"
 }
 
-resource "infracost_aws_nat_gateway" "my_nat_gateway" {
+data "infracost_aws_nat_gateway" "my_nat_gateway" {
   resources = list(aws_nat_gateway.my_nat_gateway.id)
 
   monthly_gb_data_processed {

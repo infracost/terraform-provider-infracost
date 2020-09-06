@@ -7,7 +7,7 @@ import (
 )
 
 func TestAWSLambdaFunction(t *testing.T) {
-	name := "infracost_aws_lambda_function.my_lambda_function"
+	name := "data.infracost_aws_lambda_function.my_lambda_function"
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:  func() {},
@@ -27,7 +27,7 @@ func TestAWSLambdaFunction(t *testing.T) {
 
 func testAWSLambdaFunctionConfig() string {
 	return `
-		resource "infracost_aws_lambda_function" "my_lambda_function" {
+		data "infracost_aws_lambda_function" "my_lambda_function" {
 			resources = list("my_lambda_function_1", "my_lambda_function_2")
 
 			monthly_requests {
