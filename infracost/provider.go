@@ -10,6 +10,7 @@ func Provider() terraform.ResourceProvider {
 		ResourcesMap: map[string]*schema.Resource{
 			"infracost_aws_nat_gateway":     resourceAwsNatGateway(),
 			"infracost_aws_lambda_function": resourceAwsLambdaFunction(),
+			"infracost_aws_dynamodb_table":  resourceAwsDynamoDB(),
 		},
 	}
 }
