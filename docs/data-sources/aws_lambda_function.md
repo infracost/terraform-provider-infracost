@@ -42,7 +42,7 @@ resource "aws_lambda_function" "my_lambda_function" {
   }
 }
 
-resource "infracost_aws_lambda_function" "my_lambda_function" {
+data "infracost_aws_lambda_function" "my_lambda_function" {
   resources = list(aws_lambda_function.my_lambda_function.id)
 
   monthly_requests {

@@ -7,7 +7,7 @@ import (
 )
 
 func TestAwsNatGateway(t *testing.T) {
-	name := "infracost_aws_nat_gateway.my_nat_gateway"
+	name := "data.infracost_aws_nat_gateway.my_nat_gateway"
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:  func() {},
@@ -26,7 +26,7 @@ func TestAwsNatGateway(t *testing.T) {
 
 func testAwsNatGatewayConfig() string {
 	return `
-		resource "infracost_aws_nat_gateway" "my_nat_gateway" {
+		data "infracost_aws_nat_gateway" "my_nat_gateway" {
 			resources = list("my_nat_gateway_1", "my_nat_gateway_2")
 
 			monthly_gb_data_processed {

@@ -30,20 +30,7 @@ func usageSchema() *schema.Schema {
 	}
 }
 
-func resourceCreate(d *schema.ResourceData, meta interface{}) error {
+func dataSourceRead(d *schema.ResourceData, meta interface{}) error {
 	d.SetId(uuid.New().String())
-	return nil
-}
-
-func resourceRead(d *schema.ResourceData, meta interface{}) error {
-	return nil
-}
-
-func resourceUpdate(d *schema.ResourceData, meta interface{}) error {
-	return nil
-}
-
-func resourceDelete(d *schema.ResourceData, meta interface{}) error {
-	d.SetId("")
 	return nil
 }
