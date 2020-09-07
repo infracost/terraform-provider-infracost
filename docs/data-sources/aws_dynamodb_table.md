@@ -37,10 +37,13 @@ resource "infracost_aws_dynamodb_table" "my-dynamodb-table" {
   monthly_million_write_request_units {
     value = 3
   }
-
   monthly_million_read_request_units {
     value = 8
   }
+  monthly_gb_data_storage {
+    value = 230
+  }
+
 }
 ```
 
@@ -49,6 +52,7 @@ resource "infracost_aws_dynamodb_table" "my-dynamodb-table" {
 * `resources` - (Required) The IDs of the DynamoDBs to apply the estimated usage.
 * `monthly_million_write_request_units` - (Optional) The estimated write request units per month in millions (used for on-demand DynamoDB).
 * `monthly_million_write_request_units` - (Optional) The estimated read request units per month in millions (used for on-demand DynamoDB).
+* `monthly_gb_data_storage` - (Optional) The estimated storage for tables per month in GBs.
 
 ### Usage values
 
