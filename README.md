@@ -11,7 +11,7 @@ The Infracost provider is used to add estimated usage of Terraform resources to 
 
 Run all tests:
 ```sh
-make acctest
+make testacc
 ```
 
 Build:
