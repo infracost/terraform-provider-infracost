@@ -12,6 +12,9 @@ func dataSourceAwsDynamoDBTable() *schema.Resource {
 			"monthly_million_write_request_units": usageSchema(),
 			"monthly_million_read_request_units":  usageSchema(),
 			"monthly_gb_data_storage":             usageSchema(),
+			"monthly_gb_continuos_backup_storage": usageSchema(),
+			"monthly_gb_on_demand_backup_storage": usageSchema(),
+			"gb_restore":                          usageSchema(),
 		},
 	}
 }
