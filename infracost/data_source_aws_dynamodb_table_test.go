@@ -7,7 +7,7 @@ import (
 )
 
 func TestAwsDynamoDBTable(t *testing.T) {
-	name := "data.infracost_aws_nat_gateway.my_nat_gateway"
+	name := "data.infracost_aws_dynamodb_table.my_dynamodb_table_usage"
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:  func() {},
@@ -18,6 +18,7 @@ func TestAwsDynamoDBTable(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testCheckResourceAttrValue(name, "monthly_million_write_request_units", 3.0),
 					testCheckResourceAttrValue(name, "monthly_million_read_request_units", 8.0),
+					testCheckResourceAttrValue(name, "monthly_gb_data_storage", 230.0),
 				),
 			},
 		},
@@ -33,6 +34,9 @@ func testAwsDynamoDBTableConfig() string {
 			}
 			monthly_million_read_request_units {
 				value = 8
+			}
+			monthly_gb_data_storage {
+				value = 230
 			}
 		}
 	`
