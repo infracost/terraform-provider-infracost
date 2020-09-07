@@ -58,6 +58,9 @@ resource "infracost_aws_dynamodb_table" "my-dynamodb-table" {
   monthly_gb_data_out {
     value = 30
   }
+  monthly_streams_read_request_units {
+    value = 2
+  }
 
 }
 ```
@@ -73,6 +76,7 @@ resource "infracost_aws_dynamodb_table" "my-dynamodb-table" {
 * `monthly_gb_restore` - (Optional) The estimated size of restored data per month in GBs.
 * `monthly_gb_data_in` - (Optional) The estimated size of transferred data into DynamoDB per month in GBs.
 * `monthly_gb_data_in` - (Optional) The estimated size of transferred data out of DynamoDB per month in GBs.
+* `monthly_streams_read_request_units` - (Optional) The estimated streams read request units per month.
 
 ### Usage values
 
