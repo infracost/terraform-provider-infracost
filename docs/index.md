@@ -15,7 +15,7 @@ resource "aws_nat_gateway" "my-nat-gateway" {
 }
 
 # Add usage estimates for the AWS NAT Gateway
-resource "infracost_aws_nat_gateway" "my-nat-gateway" {
+data "infracost_aws_nat_gateway" "my-nat-gateway" {
   resources = list(aws_nat_gateway.my-nat-gateway-1.id)
 
   gb_data_processed_monthly {
