@@ -20,8 +20,10 @@ func TestAwsDynamoDBTable(t *testing.T) {
 					testCheckResourceAttrValue(name, "monthly_million_read_request_units", 8.0),
 					testCheckResourceAttrValue(name, "monthly_gb_data_storage", 230.0),
 					testCheckResourceAttrValue(name, "monthly_gb_continuos_backup_storage", 2300.0),
-					testCheckResourceAttrValue(name, "monthly_gb_continuos_backup_storage", 470.0),
-					testCheckResourceAttrValue(name, "gb_restore", 230.0),
+					testCheckResourceAttrValue(name, "monthly_gb_on_demand_backup_storage", 460.0),
+					testCheckResourceAttrValue(name, "monthly_gb_restore", 230.0),
+					testCheckResourceAttrValue(name, "monthly_gb_data_in", 10.0),
+					testCheckResourceAttrValue(name, "monthly_gb_data_out", 30.0),
 				),
 			},
 		},
@@ -42,13 +44,19 @@ func testAwsDynamoDBTableConfig() string {
 				value = 230
 			}
 			monthly_gb_continuos_backup_storage {
-				value: 2300
+				value = 2300
 			}
 			monthly_gb_on_demand_backup_storage {
-				value: 460
+				value = 460
 			}
-			gb_restore {
-				value: 230
+			monthly_gb_restore {
+				value = 230
+			}
+			monthly_gb_data_in {
+				value = 10
+			}
+			monthly_gb_data_out {
+				value = 30
 			}
 		}
 	`
