@@ -34,11 +34,11 @@ resource "aws_dynamodb_table" "my_dynamodb_table" {
 data "infracost_aws_dynamodb_table" "my_dynamodb_table" {
   resources = list(aws_dynamodb_table.my_dynamodb_table.id)
 
-  monthly_million_write_request_units {
-    value = 3
+  monthly_write_request_units {
+    value = 3000000
   }
-  monthly_million_read_request_units {
-    value = 8
+  monthly_read_request_units {
+    value = 8000000
   }
   monthly_gb_data_storage {
     value = 230
@@ -68,8 +68,8 @@ data "infracost_aws_dynamodb_table" "my_dynamodb_table" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the DynamoDBs to apply the estimated usage.
-* `monthly_million_write_request_units` - (Optional) The estimated write request units per month in millions (used for on-demand DynamoDB).
-* `monthly_million_write_request_units` - (Optional) The estimated read request units per month in millions (used for on-demand DynamoDB).
+* `monthly_write_request_units` - (Optional) The estimated write request units per month in (used for on-demand DynamoDB).
+* `monthly_read_request_units` - (Optional) The estimated read request units per month in (used for on-demand DynamoDB).
 * `monthly_gb_data_storage` - (Optional) The estimated storage for tables per month in GBs.
 * `monthly_gb_continuous_backup_storage` - (Optional) The estimated storage for continuous backups (PITR) per month in GBs.
 * `monthly_gb_on_demand_backup_storage` - (Optional) The estimated storage for on-demand backups per month in GBs.
