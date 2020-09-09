@@ -31,8 +31,8 @@ resource "aws_dynamodb_table" "my-dynamodb-table" {
 
 }
 
-resource "infracost_aws_dynamodb_table" "my-dynamodb-table" {
-  resources = list(aws_dynamodb_table.my-dynamodb-table.id)
+data "infracost_aws_dynamodb_table" "my_dynamodb_table" {
+  resources = list(aws_dynamodb_table.my_dynamodb_table.id)
 
   monthly_million_write_request_units {
     value = 3
@@ -71,11 +71,11 @@ resource "infracost_aws_dynamodb_table" "my-dynamodb-table" {
 * `monthly_million_write_request_units` - (Optional) The estimated write request units per month in millions (used for on-demand DynamoDB).
 * `monthly_million_write_request_units` - (Optional) The estimated read request units per month in millions (used for on-demand DynamoDB).
 * `monthly_gb_data_storage` - (Optional) The estimated storage for tables per month in GBs.
-* `monthly_gb_continuos_backup_storage` - (Optional) The estimated storage for continuos backups(PITR) per month in GBs.
+* `monthly_gb_continuous_backup_storage` - (Optional) The estimated storage for continuous backups (PITR) per month in GBs.
 * `monthly_gb_on_demand_backup_storage` - (Optional) The estimated storage for on-demand backups per month in GBs.
 * `monthly_gb_restore` - (Optional) The estimated size of restored data per month in GBs.
 * `monthly_gb_data_in` - (Optional) The estimated size of transferred data into DynamoDB per month in GBs.
-* `monthly_gb_data_in` - (Optional) The estimated size of transferred data out of DynamoDB per month in GBs.
+* `monthly_gb_data_out` - (Optional) The estimated size of transferred data out of DynamoDB per month in GBs.
 * `monthly_streams_read_request_units` - (Optional) The estimated streams read request units per month.
 
 ### Usage values
