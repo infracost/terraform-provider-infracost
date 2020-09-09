@@ -5,7 +5,7 @@ Provides estimated usage data for an AWS DynamoDB.
 ## Example Usage
 
 ```hcl
-resource "aws_dynamodb_table" "my-dynamodb-table" {
+resource "aws_dynamodb_table" "my_dynamodb_table" {
   name           = "GameScores"
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "UserId"
@@ -43,7 +43,7 @@ data "infracost_aws_dynamodb_table" "my_dynamodb_table" {
   monthly_gb_data_storage {
     value = 230
   }
-  monthly_gb_continuos_backup_storage {
+  monthly_gb_continuous_backup_storage {
     value = 2300
   }
   monthly_gb_on_demand_backup_storage {
