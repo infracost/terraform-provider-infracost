@@ -2,6 +2,8 @@
 
 The Infracost provider is used to add estimated usage of Terraform resources to add better cost estimations when used with the [Infracost](https://infracost.io) tool.
 
+See basic docs [here](https://www.infracost.io/docs/#cost-estimation-of-usage-based-resources) and check the auto-generated [Terraform Provider docs](https://registry.terraform.io/providers/infracost/infracost/latest/docs) for full details.
+
 ## Table of Contents
 
 * [Development](#development)
