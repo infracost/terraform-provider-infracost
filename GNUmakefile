@@ -10,7 +10,7 @@ ifndef $(GOARCH)
 	GOARCH=$(shell go env GOARCH)
 endif
 
-INSTALL_PATH := $(PLUGIN_ROOT_PATH)/infracost.io/infracost/infracost/$(VERSION)/$(GOOS)_$(GOARCH)
+INSTALL_PATH := $(PLUGIN_ROOT_PATH)/registry.terraform.io/infracost/infracost/$(VERSION)/$(GOOS)_$(GOARCH)
 
 default: testacc
 
