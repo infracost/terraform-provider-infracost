@@ -8,7 +8,7 @@ func dataSourceAwsSQSQueue() *schema.Resource {
 	return &schema.Resource{
 		Read: dataSourceRead,
 		Schema: map[string]*schema.Schema{
-			"resources":                 resourcesSchema(),
+			"resources": resourcesSchema(),
 			"monthly_requests": usageSchema(),
 			"request_size": usageSchema(),
 		},

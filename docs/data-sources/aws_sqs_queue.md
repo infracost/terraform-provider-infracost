@@ -1,6 +1,6 @@
 # infracost_aws_sqs_queue
 
-Provides estimated usage data for an AWS SQS Queue Reuqests.
+Provides estimated usage data for an AWS SQS Queue Requests.
 
 ## Example Usage
 
@@ -32,8 +32,8 @@ data "infracost_aws_sqs_queue" "sqs_costs" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the SQS Queues to apply the estimated usage.
-* `monthly_requests` - (Optional) The estimate in number of requests to SQS
-* `request_size` - (Optional) The size of the requests to SQS, SQS bills in 64kb chunks. So if you process 1000000 requests at 128kb you pay for 2000000 requests.
+* `monthly_requests` - (Optional) The estimated monthly requests to SQS.
+* `request_size` - (Optional) The size of the requests to SQS, SQS bills in 64KB chunks. So if you process 1,000,000 requests at 128KB you pay for 2,000,000 requests.
 
 ### Usage values
 
