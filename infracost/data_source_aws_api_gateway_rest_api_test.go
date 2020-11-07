@@ -26,12 +26,11 @@ func TestAwsApiGatewayRestApi(t *testing.T) {
 
 func testAwsApiGatewayConfig() string {
     return `
-		data "infracost_aws_api_gateway_rest_api" "my_api_requests" {
-			resources = list("my_rest_api_1", "my_rest_api_2")
+        data "infracost_aws_api_gateway_rest_api" "my_api_requests" {
+            resources = list("my_rest_api_1", "my_rest_api_2")
 
-			monthly_requests {
-				value = 1000000
-			}
-		}
-	`
+            monthly_requests {
+              value = 1000000
+            }
+        }`
 }
