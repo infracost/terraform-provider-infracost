@@ -53,8 +53,8 @@ data "infracost_aws_codebuild_project" "build_cost" {
 
 ## Argument Reference
 
-* `resources` - (Required) The IDs of the SQS Queues to apply the estimated usage.
-* `monthly_build_minutes` - (Required) The estimated total duration of monthly codebuild execution usaged in minutes.
+* `resources` - (Required) The IDs of the Codebuild Projects to apply the estimated usage.
+* `monthly_build_minutes` - (Required) The estimated total duration of monthly codebuild execution usage in minutes.
 
 ### Usage values
 
