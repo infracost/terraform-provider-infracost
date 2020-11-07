@@ -32,5 +32,6 @@ func testAwsApiGatewayConfig() string {
             monthly_requests {
               value = 1000000
             }
-        }`
+        }
+   `
 }
