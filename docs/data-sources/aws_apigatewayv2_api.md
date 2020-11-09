@@ -45,7 +45,7 @@ data "infracost_aws_api_gateway_rest_api" "websocket_messages" {
 
 * `resources` - (Required) The ID of the Rest API.
 * `monthly_requests` - (Optional) The estimated monthly requests to the HTTP API Gateway.
-* `request_size` - (Optional) The estimated request size in (kb) sent to the HTTP API Gateway. Requests are billed in 512kb chunks, Max 10MB.
+* `average_request_size` - (Optional) The estimated average request size in (KB) sent to the HTTP API Gateway. Requests are metered in 512KB increments, maximum size is 10MB.
 * `monthly_messages` - (Optional) The number of messages sent to the Websocket API Gateway.
 * `average_message_size` - (Optional) The average size of the messages sent to the Websocket API Gateway. Max message size is 128kb.
 
@@ -53,4 +53,3 @@ data "infracost_aws_api_gateway_rest_api" "websocket_messages" {
 
 Each of the usage value blocks currently supports the following attributes:
 * `value` - (Optional) The estimated value.
-
