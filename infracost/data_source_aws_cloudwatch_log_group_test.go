@@ -39,9 +39,9 @@ func testAwsCloudwatchLogGroupConfig() string {
 				value = 500
 			}
 
-            monthly_gb_data_scanned {
-                value = 100
-            }
+			monthly_gb_data_scanned {
+				value = 100
+			}
 		}
 	`
 }
