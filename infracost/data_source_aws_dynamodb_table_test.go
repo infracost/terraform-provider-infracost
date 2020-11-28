@@ -16,8 +16,8 @@ func TestAwsDynamoDBTable(t *testing.T) {
 			{
 				Config: testAwsDynamoDBTableConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testCheckResourceAttrValue(name, "monthly_write_request_units", 3.0),
-					testCheckResourceAttrValue(name, "monthly_read_request_units", 8.0),
+					testCheckResourceAttrValue(name, "monthly_write_request_units", 3000000.0),
+					testCheckResourceAttrValue(name, "monthly_read_request_units", 8000000.0),
 					testCheckResourceAttrValue(name, "monthly_gb_data_storage", 230.0),
 					testCheckResourceAttrValue(name, "monthly_gb_continuous_backup_storage", 2300.0),
 					testCheckResourceAttrValue(name, "monthly_gb_on_demand_backup_storage", 460.0),
