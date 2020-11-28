@@ -1,6 +1,6 @@
 # infracost_aws_cloudwatch_log_group
 
-Provides estimated usage data for an AWS Cloudwatch log group.
+Provides estimated usage data for an AWS CloudWatch log group.
 
 ## Example Usage
 
@@ -19,7 +19,7 @@ data "infracost_aws_cloudwatch_log_group" "logs" {
   monthly_gb_data_storage {
     value = 1000
   }
-  
+
   monthly_gb_data_scanned {
     value = 200
   }
@@ -28,10 +28,10 @@ data "infracost_aws_cloudwatch_log_group" "logs" {
 
 ## Argument Reference
 
-* `resources` - (Required) The IDs of the Cloudwatch logs log group to apply the estimated usage.
-* `monthly_gb_data_ingestion` - (Optional) The estimated GB of data ingested by Cloudwatch logs per month. 
-* `monthly_gb_data_storage` - (Optional) The estimated GB of data stored by Cloudwatch logs per month.
-* `monthly_gb_data_scanned` - (Optional) The estimated GB of data scanned by Cloudwatch logs insights per month.
+* `resources` - (Required) The IDs of the CloudWatch logs log group to apply the estimated usage.
+* `monthly_gb_data_ingestion` - (Optional) The estimated GB of data ingested by CloudWatch logs per month.
+* `monthly_gb_data_storage` - (Optional) The estimated GB of data stored by CloudWatch logs per month.
+* `monthly_gb_data_scanned` - (Optional) The estimated GB of data scanned by CloudWatch logs insights per month.
 
 ### Usage values
 
