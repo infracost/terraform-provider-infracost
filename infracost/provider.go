@@ -16,6 +16,8 @@ func Provider() terraform.ResourceProvider {
 			"infracost_aws_lambda_function":      dataSourceAwsLambdaFunction(),
 			"infracost_aws_nat_gateway":          dataSourceAwsNatGateway(),
 			"infracost_aws_sqs_queue":            dataSourceAwsSQSQueue(),
+			"infracost_aws_sns_topic":             dataSourceAwsSNSTopic(),
+			"infracost_aws_sns_topic_subscription": dataSourceAwsSNSTopicSubscription(),
 		},
 	}
 }
