@@ -1,6 +1,6 @@
 # infracost_aws_vpn_connection
 
-Provides estimated usage data for an AWS VPN Transit gateway data processing.
+Provides estimated data processing costs for an AWS VPN Transit gateway attachment.
 
 ## Example Usage
 
