@@ -1,6 +1,6 @@
 # infracost_aws_vpc_endpoint
 
-Provides estimated data processing through an AWS VPC `Interface` or `GatewayLoadBalancer` endpoint.
+Provides estimated data processing costs through an AWS VPC `Interface` or `GatewayLoadBalancer` endpoint.
 
 ## Example Usage
 
