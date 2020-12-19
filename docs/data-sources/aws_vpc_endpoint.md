@@ -21,11 +21,11 @@ data "infracost_aws_vpc_endpoint" "vpc_endpoint_costs" {
 
 ## Argument Reference
 
-* `resources` - (Required) The IDs of the VPC Endpoint to apply the estimated dat processing cost.
-* `monthly_gb_data_processed` - (Optional) The estimated monthly data processing in GB.
+* `resources` - (Required) The IDs of the VPC endpoint(s) to apply the estimated usage.
+* `monthly_gb_data_processed` - (Optional) The estimated GB of data processed by the VPC endpoint(s) per month.
 
 ### Usage values
 
 Each of the usage value blocks currently supports the following attributes:
-* `value` - (Optional) The estimated value.
 
+* `value` - (Optional) The estimated value.
