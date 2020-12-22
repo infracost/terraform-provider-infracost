@@ -19,6 +19,7 @@ func Provider() terraform.ResourceProvider {
 			"infracost_aws_sns_topic":              dataSourceAwsSNSTopic(),
 			"infracost_aws_sns_topic_subscription": dataSourceAwsSNSTopicSubscription(),
 			"infracost_aws_sqs_queue":              dataSourceAwsSQSQueue(),
+			"infracost_aws_vpn_connection":         dataSourceAwsVPNConnection(),
 		},
 	}
 }
