@@ -8,10 +8,10 @@ func dataSourceAwsCloudwatchLogGroup() *schema.Resource {
 	return &schema.Resource{
 		Read: dataSourceRead,
 		Schema: map[string]*schema.Schema{
-			"resources":                 resourcesSchema(),
-			"monthly_gb_data_ingestion": usageSchema(),
-			"monthly_gb_data_storage":   usageSchema(),
-			"monthly_gb_data_scanned":   usageSchema(),
+			"resources":                resourcesSchema(),
+			"monthly_data_ingested_gb": usageSchema(),
+			"storage_gb":               usageSchema(),
+			"monthly_data_scanned_gb":  usageSchema(),
 		},
 	}
 }

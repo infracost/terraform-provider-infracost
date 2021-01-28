@@ -18,7 +18,7 @@ func TestAwsSQSQueue(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
 					testCheckResourceAttrValue(name, "monthly_requests", 1000000),
-					testCheckResourceAttrValue(name, "request_size", 64),
+					testCheckResourceAttrValue(name, "request_size_kb", 64),
 				),
 			},
 		},
@@ -33,8 +33,8 @@ func testAwsSQSQueueConfig() string {
 			monthly_requests {
 				value = 1000000
 			}
-			
-			request_size {
+
+			request_size_kb {
 				value = 64
 			}
 		}

@@ -18,7 +18,7 @@ func TestAWSLambdaFunction(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
 					testCheckResourceAttrValue(name, "monthly_requests", 100000.0),
-					testCheckResourceAttrValue(name, "average_request_duration", 500.0),
+					testCheckResourceAttrValue(name, "request_duration_ms", 500.0),
 				),
 			},
 		},
@@ -34,7 +34,7 @@ func testAWSLambdaFunctionConfig() string {
 				value = 100000
 			}
 
-			average_request_duration {
+			request_duration_ms {
 				value = 500
 			}
 		}

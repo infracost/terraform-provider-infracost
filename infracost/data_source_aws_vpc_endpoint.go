@@ -9,7 +9,7 @@ func dataSourceAwsVPCEndpoint() *schema.Resource {
 		Read: dataSourceRead,
 		Schema: map[string]*schema.Schema{
 			"resources":                 resourcesSchema(),
-			"monthly_gb_data_processed": usageSchema(),
+			"monthly_data_processed_gb": usageSchema(),
 		},
 	}
 }

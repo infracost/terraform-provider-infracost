@@ -14,7 +14,7 @@ resource "aws_vpn_connection" "transit" {
 data "infracost_aws_vpn_connection" "vpn_transit_costs" {
   resources = list(aws_vpn_connection.transit.id)
 
-  monthly_gb_data_processed {
+  monthly_data_processed_gb {
     value = 100
   }
 }
@@ -23,7 +23,7 @@ data "infracost_aws_vpn_connection" "vpn_transit_costs" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the VPN connections to apply the estimated usage.
-* `monthly_gb_data_processed` - (Optional) The estimated monthly data processed through a transit gateway attached to your VPN Connection.
+* `monthly_data_processed_gb` - (Optional) The estimated monthly data processed through a transit gateway attached to your VPN Connection in GB.
 
 ### Usage values
 

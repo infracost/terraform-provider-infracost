@@ -13,7 +13,7 @@ resource "aws_nat_gateway" "my_nat_gateway" {
 data "infracost_aws_nat_gateway" "my_nat_gateway" {
   resources = list(aws_nat_gateway.my_nat_gateway.id)
 
-  monthly_gb_data_processed {
+  monthly_data_processed_gb {
     value = 10
   }
 }
@@ -22,7 +22,7 @@ data "infracost_aws_nat_gateway" "my_nat_gateway" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the Nat Gateways to apply the estimated usage.
-* `monthly_gb_data_processed` - (Optional) The estimated GB of data processed by the NAT Gateway per month. See [monthly_gb_data_processed](#monthly_gb_data_processed) below for details on attributes.
+* `monthly_data_processed_gb` - (Optional) The estimated data processed by the NAT Gateway per month in GB.
 
 ### Usage values
 

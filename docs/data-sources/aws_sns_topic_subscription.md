@@ -9,7 +9,7 @@ resource "aws_sns_topic_subscription" "sns_subscription" {
   name = "sns-topic"
   endpointType = "HTTP"
   topic_arn = "aws_sns_topic.topic.arn"
-  endpoint = "my-http-sns-endpoint" 
+  endpoint = "my-http-sns-endpoint"
 }
 
 data "infracost_aws_sns_topic_subscription" "costs" {
@@ -18,8 +18,8 @@ data "infracost_aws_sns_topic_subscription" "costs" {
   monthly_requests {
     value = 1000000
   }
-  
-  request_size {
+
+  request_size_kb {
     value = 64
   }
 
@@ -30,7 +30,7 @@ data "infracost_aws_sns_topic_subscription" "costs" {
 
 * `resources` - (Required) The IDs of the SNS Topic to apply the estimated usage.
 * `monthly_requests` - (Optional) The estimated monthly requests to SNS.
-* `request_size` - (Optional) The size of the requests to SNS, SNS bills in 64KB chunks. So if you process 1,000,000 requests at 128KB you pay for 2,000,000 requests.
+* `request_size_kb` - (Optional) The size of the requests to SNS, SNS bills in 64KB chunks. So if you process 1,000,000 requests at 128KB you pay for 2,000,000 requests.
 
 ### Usage values
 

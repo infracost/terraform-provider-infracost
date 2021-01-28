@@ -17,7 +17,7 @@ func TestAwsECRRepository(t *testing.T) {
 				Config: testAwsECRRepositoryConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
-					testCheckResourceAttrValue(name, "storage_size", 100000),
+					testCheckResourceAttrValue(name, "storage_gb", 100000),
 				),
 			},
 		},
@@ -29,7 +29,7 @@ func testAwsECRRepositoryConfig() string {
 		data "infracost_aws_ecr_repository" "ecr_repository" {
 			resources = list("ecr_repo_1", "ecr_repo_2")
 
-			storage_size {
+			storage_gb {
 				value = 100000
 			}
 		}

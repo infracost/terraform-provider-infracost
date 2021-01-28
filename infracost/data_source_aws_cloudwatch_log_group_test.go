@@ -17,9 +17,9 @@ func TestAwsCloudwatchLogGroup(t *testing.T) {
 				Config: testAwsCloudwatchLogGroupConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
-					testCheckResourceAttrValue(name, "monthly_gb_data_ingestion", 1000),
-					testCheckResourceAttrValue(name, "monthly_gb_data_storage", 500),
-					testCheckResourceAttrValue(name, "monthly_gb_data_scanned", 100),
+					testCheckResourceAttrValue(name, "monthly_data_ingested_gb", 1000),
+					testCheckResourceAttrValue(name, "storage_gb", 500),
+					testCheckResourceAttrValue(name, "monthly_data_scanned_gb", 100),
 				),
 			},
 		},
@@ -31,15 +31,15 @@ func testAwsCloudwatchLogGroupConfig() string {
 		data "infracost_aws_cloudwatch_log_group" "log_group" {
 			resources = list("log_group_1", "log_group_2")
 
-			monthly_gb_data_ingestion {
+			monthly_data_ingested_gb {
 				value = 1000
 			}
-			
-			monthly_gb_data_storage {
+
+			storage_gb {
 				value = 500
 			}
 
-			monthly_gb_data_scanned {
+			monthly_data_scanned_gb {
 				value = 100
 			}
 		}

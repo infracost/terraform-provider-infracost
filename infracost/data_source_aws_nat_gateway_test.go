@@ -17,7 +17,7 @@ func TestAwsNatGateway(t *testing.T) {
 				Config: testAwsNatGatewayConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
-					testCheckResourceAttrValue(name, "monthly_gb_data_processed", 10.0),
+					testCheckResourceAttrValue(name, "monthly_data_processed_gb", 10.0),
 				),
 			},
 		},
@@ -29,7 +29,7 @@ func testAwsNatGatewayConfig() string {
 		data "infracost_aws_nat_gateway" "my_nat_gateway" {
 			resources = list("my_nat_gateway_1", "my_nat_gateway_2")
 
-			monthly_gb_data_processed {
+			monthly_data_processed_gb {
 				value = 10
 			}
 		}

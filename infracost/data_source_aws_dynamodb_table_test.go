@@ -18,12 +18,10 @@ func TestAwsDynamoDBTable(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testCheckResourceAttrValue(name, "monthly_write_request_units", 3000000.0),
 					testCheckResourceAttrValue(name, "monthly_read_request_units", 8000000.0),
-					testCheckResourceAttrValue(name, "monthly_gb_data_storage", 230.0),
-					testCheckResourceAttrValue(name, "monthly_gb_continuous_backup_storage", 2300.0),
-					testCheckResourceAttrValue(name, "monthly_gb_on_demand_backup_storage", 460.0),
-					testCheckResourceAttrValue(name, "monthly_gb_restore", 230.0),
-					testCheckResourceAttrValue(name, "monthly_gb_data_in", 10.0),
-					testCheckResourceAttrValue(name, "monthly_gb_data_out", 30.0),
+					testCheckResourceAttrValue(name, "storage_gb", 230.0),
+					testCheckResourceAttrValue(name, "pitr_backup_storage_gb", 2300.0),
+					testCheckResourceAttrValue(name, "on_demand_backup_storage_gb", 460.0),
+					testCheckResourceAttrValue(name, "monthly_data_restored_gb", 230.0),
 					testCheckResourceAttrValue(name, "monthly_streams_read_request_units", 2.0),
 				),
 			},
@@ -41,23 +39,17 @@ func testAwsDynamoDBTableConfig() string {
 			monthly_read_request_units {
 				value = 8000000
 			}
-			monthly_gb_data_storage {
+			storage_gb {
 				value = 230
 			}
-			monthly_gb_continuous_backup_storage {
+			pitr_backup_storage_gb {
 				value = 2300
 			}
-			monthly_gb_on_demand_backup_storage {
+			on_demand_backup_storage_gb {
 				value = 460
 			}
-			monthly_gb_restore {
+			monthly_data_restored_gb {
 				value = 230
-			}
-			monthly_gb_data_in {
-				value = 10
-			}
-			monthly_gb_data_out {
-				value = 30
 			}
 			monthly_streams_read_request_units {
 				value = 2

@@ -17,7 +17,7 @@ func TestAwsVPNConnection(t *testing.T) {
 				Config: testAwsVPNConnectionConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
-					testCheckResourceAttrValue(name, "monthly_gb_data_processed", 100),
+					testCheckResourceAttrValue(name, "monthly_data_processed_gb", 100),
 				),
 			},
 		},
@@ -29,7 +29,7 @@ func testAwsVPNConnectionConfig() string {
 		data "infracost_aws_vpn_connection" "vpn_connection" {
 			resources = list("vpn_connection_1", "vpn_connection_2")
 
-			monthly_gb_data_processed {
+			monthly_data_processed_gb {
 				value = 100
 			}
 		}

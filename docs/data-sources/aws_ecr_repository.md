@@ -12,7 +12,7 @@ resource "aws_ecr_repository" "repo" {
 data "infracost_aws_ecr_repository" "costs" {
   resources = list(aws_ecr_repository.repo.id)
 
-  storage_size {
+  storage_gb {
     value = 1
   }
 }
@@ -21,7 +21,7 @@ data "infracost_aws_ecr_repository" "costs" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the ECR Repository to apply the estimated usage.
-* `storage` - (Optional) The estimated monthly ECR repository storage usage.
+* `storage_gb` - (Optional) The estimated total size of ECR repository in GB.
 
 ### Usage values
 

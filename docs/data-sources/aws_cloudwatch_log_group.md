@@ -12,15 +12,15 @@ resource "aws_cloudwatch_log_group" "logs" {
 data "infracost_aws_cloudwatch_log_group" "logs" {
   resources = list(aws_cloudwatch_log_group.logs.id)
 
-  monthly_gb_data_ingestion {
+  monthly_data_ingested_gb {
     value = 1000
   }
 
-  monthly_gb_data_storage {
+  storage_gb {
     value = 1000
   }
 
-  monthly_gb_data_scanned {
+  monthly_data_scanned_gb {
     value = 200
   }
 }
@@ -29,9 +29,9 @@ data "infracost_aws_cloudwatch_log_group" "logs" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the CloudWatch logs log group to apply the estimated usage.
-* `monthly_gb_data_ingestion` - (Optional) The estimated GB of data ingested by CloudWatch logs per month.
-* `monthly_gb_data_storage` - (Optional) The estimated GB of data stored by CloudWatch logs per month.
-* `monthly_gb_data_scanned` - (Optional) The estimated GB of data scanned by CloudWatch logs insights per month.
+* `monthly_data_ingested_gb` - (Optional) The estimated data ingested by CloudWatch logs per month in GB.
+* `storage_gb` - (Optional) The estimated data stored by CloudWatch logs per month in GB.
+* `monthly_data_scanned_gb` - (Optional) The estimated data scanned by CloudWatch logs insights per month in GB.
 
 ### Usage values
 

@@ -10,7 +10,7 @@ func dataSourceAwsSNSTopicSubscription() *schema.Resource {
 		Schema: map[string]*schema.Schema{
 			"resources":        resourcesSchema(),
 			"monthly_requests": usageSchema(),
-			"request_size":     usageSchema(),
+			"request_size_kb":  usageSchema(),
 		},
 	}
 }

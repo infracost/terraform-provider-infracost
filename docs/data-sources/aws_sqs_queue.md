@@ -21,8 +21,8 @@ data "infracost_aws_sqs_queue" "sqs_costs" {
   monthly_requests {
     value = 1000000
   }
-  
-  request_size {
+
+  request_size_kb {
     value = 64
   }
 
@@ -33,7 +33,7 @@ data "infracost_aws_sqs_queue" "sqs_costs" {
 
 * `resources` - (Required) The IDs of the SQS Queues to apply the estimated usage.
 * `monthly_requests` - (Optional) The estimated monthly requests to SQS.
-* `request_size` - (Optional) The size of the requests to SQS, SQS bills in 64KB chunks. So if you process 1,000,000 requests at 128KB you pay for 2,000,000 requests.
+* `request_size_kb` - (Optional) The size of the requests to SQS, SQS bills in 64KB chunks. So if you process 1,000,000 requests at 128KB you pay for 2,000,000 requests.
 
 ### Usage values
 

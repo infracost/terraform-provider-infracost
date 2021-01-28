@@ -17,7 +17,7 @@ func TestAwsEC2TransitGatewayVPCAttachment(t *testing.T) {
 				Config: testAwsEC2TransitGatewayVPCAttachmentConfig(),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(name, "resources.#", "2"),
-					testCheckResourceAttrValue(name, "monthly_db_data_processed", 1000),
+					testCheckResourceAttrValue(name, "monthly_data_processed_gb", 1000),
 				),
 			},
 		},
@@ -29,7 +29,7 @@ func testAwsEC2TransitGatewayVPCAttachmentConfig() string {
 		data "infracost_aws_ec2_transit_gateway_vpc_attachment" "ec2_tgw_vpc_attach" {
 			resources = list("ec2_tgw_vpc_attach_1", "ec2_tgw_vpc_attach_2")
 
-			monthly_gb_data_processed {
+			monthly_data_processed_gb {
 				value = 1000
 			}
 		}

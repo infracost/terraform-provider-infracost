@@ -13,7 +13,7 @@ resource "aws_dx_gateway_association" "gateway" {
 data "infracost_aws_dx_gateway_association" "gateway" {
   resources = list(aws_dx_gateway_association.gateway.id)
 
-  monthly_gb_data_processed {
+  monthly_data_processed_gb {
     value = 100
   }
 }
@@ -22,7 +22,7 @@ data "infracost_aws_dx_gateway_association" "gateway" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the DX gateway association(s) to apply the estimated usage.
-* `monthly_gb_data_processed` - (Optional) The estimated GB of data processed by the DX gateway association per month.
+* `monthly_data_processed_gb` - (Optional) The estimated data processed by the DX gateway association per month in GB.
 
 ### Usage values
 

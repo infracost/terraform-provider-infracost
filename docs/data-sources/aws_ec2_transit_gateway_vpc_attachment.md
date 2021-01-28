@@ -14,7 +14,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "vpc_attachment" {
 data "infracost_aws_ec2_transit_gateway_vpc_attachment" "vpc_attachment" {
   resources = list(aws_ec2_transit_gateway_vpc_attachment.vpc_attachment.id)
 
-  monthly_gb_data_processed {
+  monthly_data_processed_gb {
     value = 100
   }
 }
@@ -23,7 +23,7 @@ data "infracost_aws_ec2_transit_gateway_vpc_attachment" "vpc_attachment" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the EC2 transit gateway attachment(s) to apply the estimated usage.
-* `monthly_gb_data_processed` - (Optional) The estimated GB of data processed by the EC2 transit gateway attachment(s) per month.
+* `monthly_data_processed_gb` - (Optional) The estimated data processed by the EC2 transit gateway attachment(s) per month in GB.
 
 ### Usage values
 

@@ -13,7 +13,7 @@ resource "aws_vpc_endpoint" "vpc_endpoint" {
 data "infracost_aws_vpc_endpoint" "vpc_endpoint_costs" {
   resources = list(aws_vpc_endpoint.vpc_endpoint.id)
 
-  monthly_gb_data_processed {
+  monthly_data_processed_gb {
     value = 1000
   }
 }
@@ -22,7 +22,7 @@ data "infracost_aws_vpc_endpoint" "vpc_endpoint_costs" {
 ## Argument Reference
 
 * `resources` - (Required) The IDs of the VPC endpoint(s) to apply the estimated usage.
-* `monthly_gb_data_processed` - (Optional) The estimated GB of data processed by the VPC endpoint(s) per month.
+* `monthly_data_processed_gb` - (Optional) The estimated data processed by the VPC endpoint(s) per month in GB.
 
 ### Usage values
 
