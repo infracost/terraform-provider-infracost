@@ -1,10 +1,6 @@
-# Infracost Terraform Provider
+## This repo is deprecated please use the [Infracost usage file](https://www.infracost.io/docs/usage_based_resources#infracost-usage-file) instead.
 
------
-
-This repo is deprecated, please use the [Infracost usage file](https://www.infracost.io/docs/usage_based_resources#infracost-usage-file) instead.
-
------
+### Infracost Terraform Provider
 
 The Infracost provider is used to add estimated usage of Terraform resources to add better cost estimations when used with the [Infracost](https://infracost.io) tool.
 
