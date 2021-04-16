@@ -1,4 +1,4 @@
-## This repo is deprecated please use the [Infracost usage file](https://www.infracost.io/docs/usage_based_resources#infracost-usage-file) instead.
+## This repo is deprecated please use the [Infracost usage file](https://infracost.io/usage-file/) instead.
 
 ### Infracost Terraform Provider
 
